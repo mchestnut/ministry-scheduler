@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './header.module.css';
 
-import Button from '../button/button';
+import Link from '../link/link';
 import logo from '../../logo-tbc.png';
 
 class Header extends Component {
@@ -9,13 +9,11 @@ class Header extends Component {
 
     return (
       <header className={ styles.header }>
-        <img src={logo} className={ styles.logo } alt="" />
+        <Link to="/">
+          <img src={logo} className={ styles.logo } alt="" />
+        </Link>
         <div>
-          <Button
-            onClick={(e) => null}
-            tag="button"
-            label="Login"
-          />
+          <Link to="/login" className="button">Login</Link>
         </div>
       </header>
     )

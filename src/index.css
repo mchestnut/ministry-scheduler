@@ -8,7 +8,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.button {
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5em 2em;
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.button:focus,
+.button:hover {
+  color: black;
+  background-color: white;
 }
