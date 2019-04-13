@@ -1,5 +1,6 @@
 {
-  "short_name": "Ministry Scheduler",
+  "name": "TBC AV Schedule",
+  "short_name": "AV Schedule",
   "icons": [
     {
       "src": "favicon.ico",
