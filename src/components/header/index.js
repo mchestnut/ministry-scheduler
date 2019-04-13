@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './header.module.css';
 
-import Link from '../link/link';
+import Link from '../link';
 import logo from '../../logo-tbc.png';
 
 class Header extends Component {

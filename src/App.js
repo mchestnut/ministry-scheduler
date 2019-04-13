@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
-import PageCalendar from './components/page-calendar/page-calendar';
-import PageLogin from './components/page-login/page-login';
-import PageProfile from './components/page-profile/page-profile';
-import PageUsers from './components/page-users/page-users';
+import Footer from './components/footer';
+import Header from './components/header';
+import PageCalendar from './components/page-calendar';
+import PageLogin from './components/page-login';
+import PageProfile from './components/page-profile';
+import PageUsers from './components/page-users';
 
 class App extends Component {
   parsePath(path) {
