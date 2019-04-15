@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withFirebase } from '../../firebase'
 
 class PageCalendar extends Component {
 
@@ -55,4 +56,4 @@ class PageCalendar extends Component {
   }
 }
 
-export default PageCalendar;
+export default withFirebase(PageCalendar);

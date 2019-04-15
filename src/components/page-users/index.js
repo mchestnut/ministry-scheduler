@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withFirebase } from '../../firebase'
 
 class PageUsers extends Component {
   render() {
@@ -11,4 +12,4 @@ class PageUsers extends Component {
   }
 }
 
-export default PageUsers;
+export default withFirebase(PageUsers);
