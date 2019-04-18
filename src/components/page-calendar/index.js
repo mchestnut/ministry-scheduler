@@ -25,7 +25,7 @@ class PageCalendar extends Component {
   getPassedDate(date) {
     let year, month;
     
-    if (date[0].length === 4) {
+    if (date[0] && date[0].length === 4) {
       year = date[0];
     }
 
