@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../../firebase'
 
+import FormLogin from '../form-login'
+
 class PageLogin extends Component {
   render() {
 
     return (
       <main>
-        <p>Login page</p>
+        <FormLogin />
       </main>
     )
   }
