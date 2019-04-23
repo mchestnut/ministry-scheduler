@@ -1,0 +1,13 @@
+.form {
+  width: 90vw;
+}
+
+@media (min-width: 24rem) {
+  .form {
+    width: 20rem;
+  }
+}
+
+.button {
+  margin-top: 2rem;
+}

@@ -37,26 +37,28 @@ class FormLogin extends Component {
     const {email, password, error} = this.state
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          className="input input--full-width"
-          placeholder="Email address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          className="input input--full-width"
-          placeholder="Password"
-        />
+      <form onSubmit={this.onSubmit} className={ styles.form }>
+        <label className="label">Email address
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            className="input input--full-width"
+          />
+        </label>
+        <label className="label">Password
+          <input
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            type="password"
+            className="input input--full-width"
+          />
+        </label>
         <button
           type="submit"
-          className="button button--full-width"
+          className={ `button button--full-width ${styles.button}` }
         >
           Login
         </button>

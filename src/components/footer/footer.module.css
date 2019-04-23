@@ -6,10 +6,10 @@
   background-color: var(--color-gray-dark);
 }
 
-.footer__link {
+.link {
   color: inherit;
 }
 
-.footer__link:hover {
+.link:hover {
   color: white;
 }
