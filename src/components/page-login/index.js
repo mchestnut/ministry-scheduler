@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../../firebase'
 
+import Container from '../container'
 import FormLogin from '../form-login'
 
 class PageLogin extends Component {
   render() {
 
     return (
-      <main>
+      <Container>
         <FormLogin />
-      </main>
+      </Container>
     )
   }
 }
