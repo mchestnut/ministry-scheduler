@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './form-login.module.css';
+import { navigate } from '@reach/router'
 import { withFirebase } from '../../firebase'
 
 const defaultState = {
@@ -11,7 +12,7 @@ const defaultState = {
 class FormLogin extends Component {
   constructor(props) {
     super(props)
-
+    
     this.state = defaultState
   }
 
@@ -26,7 +27,7 @@ class FormLogin extends Component {
       .signIn(this.state.email, this.state.password)
       .then(() => {
         this.setState({ ...defaultState })
-        console.log('success')
+        navigate( this.props.target )
       })
       .catch(error => {
         this.setState({ error })

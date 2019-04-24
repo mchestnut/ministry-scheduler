@@ -24,6 +24,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@reach/router": "^1.2.1",
     "firebase": "^5.9.4"
   }
 }

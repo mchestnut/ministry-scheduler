@@ -6,8 +6,8 @@ class PageCalendar extends Component {
   constructor(props) {
     super(props)
 
-    if (props.date) {
-      this.state = { date: this.getPassedDate(props.date) };
+    if (props.year) {
+      this.state = { date: this.getPassedDate() };
     } else {
       this.state = { date: this.getCurrentDate() };
     }
@@ -15,28 +15,30 @@ class PageCalendar extends Component {
 
   getCurrentDate() {
     const today = new Date();
-
+    
     return {
-      month: today.getMonth(),
+      month: today.getMonth() + 1,
       year: today.getFullYear()
     };
   } 
 
-  getPassedDate(date) {
+  getPassedDate() {
     let year, month;
     
-    if (date[0] && date[0].length === 4) {
-      year = date[0];
+    if (this.props.year && this.props.year.length === 4) {
+      year = this.props.year;
+    } else {
+      year = null
     }
 
-    if (date[1] && date[1] <= 12) {
-      month = date[1];
+    if (this.props.month && this.props.month <= 12) {
+      month = this.props.month;
     } else {
       month = null
     }
 
-    if (date.length > 2 || !year) {
-      return this.getCurrentDate;
+    if (!year) {
+      return this.getCurrentDate();
     }
 
     return {
