@@ -49,15 +49,20 @@ a {
   font-weight: 300;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 0.25em 2em;
+  padding: 0.25em 1em;
   border: 2px solid white;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .button:focus,
 .button:hover {
   color: black;
   background-color: white;
+}
+
+.button + .button {
+  margin-left: 0.25rem;
 }
 
 .button--full-width {

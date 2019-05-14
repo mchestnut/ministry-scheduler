@@ -7,7 +7,7 @@ class PageProfile extends Component {
 
     return (
       <main>
-        <p>Users page</p>
+        <p>Profile page</p>
       </main>
     )
   }

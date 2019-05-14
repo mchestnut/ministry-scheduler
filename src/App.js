@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Router } from '@reach/router';
+import { withFirebase } from './firebase';
 
 import Footer from './components/footer';
 import Header from './components/header';
@@ -11,12 +12,30 @@ import PageUsers from './components/page-users';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      authUser: null
+    }
+  }
+
+  componentDidMount() {
+    this.props.firebase.auth.onAuthStateChanged(authUser => {
+      authUser ? this.setState({ authUser }) : this.setState({ authUser: null })
+    })
+  }
+
+  componentWillUnmount() {
+    this.listener()
+  }
+
   render() {
     return (
       <div className="App">
         <div className="background-image" />
         <div className="grid">
-          <Header />
+          <Header authUser={ this.state.authUser } />
           <Router style={{ display: 'inherit' }}>
             <PageCalendar path="/" />
             <PageLogin path="login" />
@@ -33,4 +52,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withFirebase(App);
