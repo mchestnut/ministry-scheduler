@@ -13,4 +13,4 @@ class PageProfile extends Component {
   }
 }
 
-export default withAuthorization('member')(PageProfile);
+export default withAuthorization('member', true)(PageProfile);

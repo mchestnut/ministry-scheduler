@@ -2,7 +2,7 @@ import React from 'react'
 import { navigate } from '@reach/router'
 import { withFirebase } from '../firebase'
 
-const withAuthorization = pageRole => Component => {
+const withAuthorization = (pageRole, isRestricted) => Component => {
   class WithAuthorization extends React.Component {
     constructor(props) {
       super(props)
@@ -23,10 +23,12 @@ const withAuthorization = pageRole => Component => {
               if (userRole === pageRole || userRole === 'admin') {
                 this.setState({ isAuthorized: true })
               } else {
+                this.setState({ isAuthorized: false})
                 navigate('/')
               }
             })
           } else {
+            this.setState({ isAuthorized: false})
             navigate('/')
           }
         },
@@ -39,6 +41,10 @@ const withAuthorization = pageRole => Component => {
 
     render() {
       if (this.state.isAuthorized) {
+        return (
+          <Component {...this.props} authUser={ true } />
+        )
+      } else if (!isRestricted) {
         return (
           <Component {...this.props} />
         )

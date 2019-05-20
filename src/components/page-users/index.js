@@ -12,4 +12,4 @@ class PageUsers extends Component {
   }
 }
 
-export default withAuthorization('admin')(PageUsers);
+export default withAuthorization('admin', true)(PageUsers);

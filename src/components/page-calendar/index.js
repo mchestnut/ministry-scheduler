@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withFirebase } from '../../firebase'
+import withAuthorization from '../../authorization'
 
 class PageCalendar extends Component {
 
@@ -53,9 +53,10 @@ class PageCalendar extends Component {
       <main>
         <p>Calendar page</p>
         <p>{ this.state.date.month }/{ this.state.date.year }</p>
+        <p>{ this.props.authUser ? 'Logged in' : '' }</p>
       </main>
     )
   }
 }
 
-export default withFirebase(PageCalendar);
+export default withAuthorization('admin', false)(PageCalendar);
