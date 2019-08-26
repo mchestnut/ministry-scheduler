@@ -38,7 +38,15 @@ class Firebase {
 
   // Database API
   getUser = uid => {
-    return this.db.ref(`/users/${uid}`)
+    return this.db.ref(`users/${uid}`)
+  }
+
+  getUsers = () => {
+    return this.db.ref('users')
+  }
+
+  update = (updates) => {
+    return this.db.ref().update(updates)
   }
 }
 
