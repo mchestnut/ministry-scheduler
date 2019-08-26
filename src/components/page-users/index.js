@@ -3,6 +3,7 @@ import withAuthorization from '../../authorization'
 
 import Button from '../button'
 import Container from '../container'
+import Select from '../select'
 
 class PageUsers extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class PageUsers extends Component {
   renderUsers() {
     return this.state.users.map((user, i) => {
       return (
-        <tr key={i}>
+        <tr key={user.props.first_name}>
           <td>
             <input
               onChange={ ({currentTarget}) => this.updateUserProp(i, 'first_name', currentTarget.value) }
@@ -58,9 +59,20 @@ class PageUsers extends Component {
               type="text"
             />
           </td>
-          <td>{user.props.role}</td>
+          <td>
+            <Select
+              onChange={ ({currentTarget}) => this.updateUserProp(i, 'role', currentTarget.value) }
+              value={ user.props.role }
+              options={[
+                { value: 'admin', label: 'Admin' },
+                { value: 'member', label: 'Member' }
+              ]}
+            />
+            </td>
           <td>{user.props.color}</td>
-          <td>❌</td>
+          <td>
+            <span role="img" aria-label="Remove">❌</span>
+          </td>
         </tr>
       )
     })
@@ -70,7 +82,7 @@ class PageUsers extends Component {
     e.preventDefault(
 
     )
-    this.state.users.map(user => {
+    this.state.users.forEach(user => {
       const diffs = Object.keys(user.diffs)
 
       if (diffs.length) {
