@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import withAuthorization from '../../authorization'
 
 import Button from '../button'
+import ColorPicker from '../color-picker'
 import Container from '../container'
 import Select from '../select'
 
@@ -69,7 +70,12 @@ class PageUsers extends Component {
               ]}
             />
             </td>
-          <td>{user.props.color}</td>
+          <td>
+            <ColorPicker
+              onChange={ (value) => this.updateUserProp(i, 'color', value) }
+              value={user.props.color}
+            />
+          </td>
           <td>
             <span role="img" aria-label="Remove">❌</span>
           </td>
@@ -120,7 +126,6 @@ class PageUsers extends Component {
   }
 
   render() {
-
     return (
       <Container>
         <h1>Users</h1>
