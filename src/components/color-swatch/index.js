@@ -16,7 +16,7 @@ class ColorSwatch extends Component {
 
     return (
       <div
-        onClick={ () => this.props.onClick(this.props.value) }
+        onClick={ () => this.props.onClick (this.props.value ) }
         className={ this.getClasses() }
         style={{ backgroundColor: '#' + this.props.value }} 
       />

@@ -4,13 +4,23 @@ import styles from './color-picker.module.css';
 import ColorSwatch from '../color-swatch'
 
 const colors = [
-  'E1A448',
-  'E37BB9'
+  'D94545', // red
+  'E1A448', // orange
+  '8D8C73', // beige
+  '89D177', // clover
+  '277441', // green
+  '38B3B3', // teal
+  '3C7AD6', // blue
+  '937DEA', // violet
+  'BC51D7', // fuschia
+  'E37BB9'  // pink
 ]
 
 class ColorPicker extends Component {
   constructor(props) {
     super(props)
+
+    this.ref = React.createRef()
     
     this.state = {
       displayContainer: false
@@ -41,8 +51,20 @@ class ColorPicker extends Component {
     return classes
   }
 
+  handleClickOutside = (e) => {
+    if ( ! this.ref.contains(e.target) ) {
+      this.closeContainer()
+    }
+  }
+
   openContainer = () => {
+    document.addEventListener( 'click', this.handleClickOutside)
+
     this.setState({ 'displayContainer': true })
+  }
+
+  toggleContainer = () => {
+    this.state.displayContainer ? this.closeContainer() : this.openContainer()
   }
 
   renderAll = () => {
@@ -65,9 +87,9 @@ class ColorPicker extends Component {
 
   render() {
     return (
-      <div className={ this.getSelectorClasses() } >
+      <div ref={ node => this.ref = node } className={ this.getSelectorClasses() } >
         <ColorSwatch
-          onClick={ this.openContainer }
+          onClick={ this.toggleContainer }
           value={ this.props.value }
         />
         <div className={ this.getContainerClasses() } >
