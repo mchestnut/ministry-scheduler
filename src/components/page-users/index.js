@@ -4,7 +4,7 @@ import withAuthorization from '../../authorization'
 import Button from '../button'
 import ColorPicker from '../color-picker'
 import Container from '../container'
-import Select from '../select'
+import RoleSelector from '../role-selector'
 
 class PageUsers extends Component {
   constructor(props) {
@@ -61,13 +61,9 @@ class PageUsers extends Component {
             />
           </td>
           <td>
-            <Select
+            <RoleSelector
               onChange={ ({currentTarget}) => this.updateUserProp(i, 'role', currentTarget.value) }
               value={ user.props.role }
-              options={[
-                { value: 'admin', label: 'Admin' },
-                { value: 'member', label: 'Member' }
-              ]}
             />
             </td>
           <td>
@@ -76,18 +72,14 @@ class PageUsers extends Component {
               value={user.props.color}
             />
           </td>
-          <td>
-            <span role="img" aria-label="Remove">❌</span>
-          </td>
         </tr>
       )
     })
   }
 
   saveChanges(e) {
-    e.preventDefault(
+    e.preventDefault()
 
-    )
     this.state.users.forEach(user => {
       const diffs = Object.keys(user.diffs)
 
