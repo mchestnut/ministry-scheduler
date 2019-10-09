@@ -25,6 +25,8 @@
   ],
   "devDependencies": {
     "@reach/router": "^1.2.1",
-    "firebase": "^5.9.4"
+    "firebase": "^5.9.4",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
   }
 }
