@@ -28,6 +28,8 @@
     "firebase": "^5.9.4",
     "node-sass": "^4.12.0",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "react-redux-firebase": "^2.4.1",
+    "redux": "^4.0.4",
+    "redux-firestore": "^0.9.0"
   }
 }

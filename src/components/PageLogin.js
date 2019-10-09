@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
   return {
+    firebase: state.firebase,
+    firestore: state.firestore,
     user: state.user
   }
 }
