@@ -4,8 +4,8 @@ const Footer = () => {
   const today = new Date()
 
   return (
-    <footer>
-      &copy; Copyright { today.getFullYear() } <a href="https://www.tricityministries.org">Tri-City Baptist Church Ministries</a>
+    <footer className="c-footer">
+      &copy; Copyright { today.getFullYear() } <a href="https://www.tricityministries.org" className="c-footer__link">Tri-City Baptist Church Ministries</a>
     </footer>
   )
 }

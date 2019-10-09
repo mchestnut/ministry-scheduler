@@ -18,19 +18,19 @@ const mapDispatchToProps = (dispatch) => {
 
 const NavBar = (props) => {
   return (
-    <header>
+    <header className="c-nav-bar">
       <div>
         <Link to="/">
-          <img src={logo} alt="" />
+          <img src={ logo } alt="" className="c-nav-bar__logo" />
         </Link>
       </div>
 
       <div>
-        <Link to="calendar">Calendar</Link>
-        <Link to="users">Users</Link>
-        <Link to="profile">My Profile</Link>
-        <Link to="login">Log In</Link>
-        <button onClick={ () => {} }>Logout</button>
+        <Link to="calendar" className="c-button">Calendar</Link>
+        <Link to="users" className="c-button">Users</Link>
+        <Link to="profile" className="c-button">My Profile</Link>
+        <Link to="login" className="c-button">Log In</Link>
+        <button onClick={ () => {} } className="c-button">Logout</button>
       </div>
     </header>
   )

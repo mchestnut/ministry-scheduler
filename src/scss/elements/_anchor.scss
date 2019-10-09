@@ -1,0 +1,12 @@
+/*
+* Anchor element
+*/
+
+a {
+  color: white;
+
+  &:focus,
+  &:hover {
+    color: var(--color-tbc-red);
+  }
+}

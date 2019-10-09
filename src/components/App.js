@@ -10,9 +10,9 @@ import PageUsers from './PageUsers'
 
 const App = () => {
   return (
-    <div>
+    <div className="o-layout">
       <NavBar />
-      <Router style={{ display: 'inherit' }}>
+      <Router>
         <PageCalendar path="/" />
         <PageCalendar path="calendar" />
         <PageCalendar path="calendar/:year" />
@@ -21,7 +21,7 @@ const App = () => {
         <PageProfile path="profile" />
         <PageUsers path="users" />
       </Router>
-      <Footer />
+      <Footer  />
     </div>
   )
 }
