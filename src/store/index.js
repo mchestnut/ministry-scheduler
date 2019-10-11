@@ -1,9 +1,8 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import { getFirebase, reactReduxFirebase } from 'react-redux-firebase'
-import { getFirestore, reduxFirestore } from 'redux-firestore'
+import { applyMiddleware, createStore } from 'redux'
+import { getFirebase } from 'react-redux-firebase'
+import { getFirestore } from 'redux-firestore'
 import thunk from 'redux-thunk'
 
-import firebase from '../firebase'
 import rootReducer from '../reducers'
 
 const defaultState = {
@@ -12,18 +11,10 @@ const defaultState = {
   }
 }
 
-const rrfConfig = {
-  attachAuthIsReady: true,
-  useFirestoreForProfile: true,
-  userProfile: 'users'
-}
-
-const createStoreWithFirebase = compose(
-  applyMiddleware( thunk.withExtraArgument({ getFirebase, getFirestore }) ),
-  reactReduxFirebase(firebase, rrfConfig),
-  reduxFirestore(firebase)
-)(createStore)
-
-const store = createStoreWithFirebase(rootReducer, defaultState)
+const store = createStore(
+  rootReducer,
+  defaultState,
+  applyMiddleware( thunk.withExtraArgument({ getFirebase, getFirestore }) )
+)
 
 export default store
