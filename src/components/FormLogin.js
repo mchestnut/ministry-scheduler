@@ -41,26 +41,24 @@ class FormLogin extends Component {
       <form onSubmit={ this.onSubmit }>
         <label>Email address
           <input
-            name="email"
             value={ this.state.email }
             onChange={ this.onChange }
+            name="email"
             type="text"
           />
         </label>
-        <label >Password
+        <label>Password
           <input
-            name="password"
             value={ this.state.password }
             onChange={ this.onChange }
+            name="password"
             type="password"
           />
         </label>
-        <button type="submit">
+        <button type="submit" className="c-button">
           Login
         </button>
-        { this.props.auth.error &&
-          <p>{ this.props.auth.error.message }</p>        
-        }
+        <p>{ this.props.auth.error ? this.props.auth.error.message : '' }</p>
       </form>
     )
   }
