@@ -14,12 +14,12 @@ const App = () => {
       <NavBar />
       <Router>
         <PageCalendar path="/" />
-        <PageCalendar path="calendar" />
-        <PageCalendar path="calendar/:year" />
-        <PageCalendar path="calendar/:year/:month" />
-        <PageLogin path="login" />
-        <PageProfile path="profile" />
-        <PageUsers path="users" />
+        <PageCalendar path="/calendar" />
+        <PageCalendar path="/calendar/:year" />
+        <PageCalendar path="/calendar/:year/:month" />
+        <PageLogin path="/login" />
+        <PageProfile path="/profile" />
+        <PageUsers path="/users" />
       </Router>
       <Footer  />
     </div>

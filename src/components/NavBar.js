@@ -1,38 +1,43 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
-import { Link } from '@reach/router'
-import * as actionCreators from '../actions/actionCreators'
+import { Link, Location } from '@reach/router'
+import { logOut } from '../actions/auth'
 
 import logo from '../img/logo-tbc.png'
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    auth: state.auth
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actionCreators, dispatch)
+  return {
+    logOut: () => dispatch( logOut() )
+  }
 }
 
 const NavBar = (props) => {
   return (
-    <header className="c-nav-bar">
-      <div>
-        <Link to="/">
-          <img src={ logo } alt="" className="c-nav-bar__logo" />
-        </Link>
-      </div>
+    <Location>
+      { ({ location }) => (
 
-      <div>
-        <Link to="calendar" className="c-button">Calendar</Link>
-        <Link to="users" className="c-button">Users</Link>
-        <Link to="profile" className="c-button">My Profile</Link>
-        <Link to="login" className="c-button">Log In</Link>
-        <button onClick={ () => {} } className="c-button">Logout</button>
-      </div>
-    </header>
+        <header className="c-nav-bar">
+          <div>
+            <Link to="/">
+              <img src={ logo } alt="" className="c-nav-bar__logo" />
+            </Link>
+          </div>
+
+          <Link to="calendar" className="c-button">Calendar</Link>
+          <Link to="users" className="c-button">Users</Link>
+          <Link to="profile" className="c-button">My Profile</Link>
+          <Link to="login" state={{ from: location.pathname }} className="c-button">Log In</Link>
+          <button onClick={ props.logOut } className="c-button">Logout</button>
+        </header>
+
+      ) }
+    </Location>
   )
 }
 
