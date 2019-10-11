@@ -1,14 +1,30 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { navigate } from '@reach/router'
 
-const PageProfile = () => {
+import Wrapper from './Wrapper'
+
+const mapStateToProps = (state) => {
+  return {
+    firebase: state.firebase
+  }
+}
+
+const PageProfile = (props) => {
+  if (!props.firebase.auth.uid) {
+    navigate('/')
+    return null
+  }
+   
   return (
-    <div>
+    <Wrapper>
       Profile
-    </div>
+    </Wrapper>
   )
 }
 
-export default PageProfile
+
+export default connect(mapStateToProps)(PageProfile)
 
 // import React, { Component } from 'react';
 // import withAuthorization from '../../authorization'

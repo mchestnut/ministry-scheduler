@@ -1,10 +1,12 @@
 import React from 'react'
 
-const PageCalendar = () => {
+import Wrapper from './Wrapper'
+
+const PageCalendar = (props) => {
   return (
-    <div>
+    <Wrapper>
       Calendar
-    </div>
+    </Wrapper>
   )
 }
 

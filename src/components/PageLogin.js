@@ -19,7 +19,6 @@ const PageLogin = (props) => {
   return (
     <Wrapper>
       <h1>Login</h1>
-      
       <FormLogin />
     </Wrapper>
   )

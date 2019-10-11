@@ -1,14 +1,30 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { navigate } from '@reach/router'
 
-const PageUsers = () => {
+import Wrapper from './Wrapper'
+
+const mapStateToProps = (state) => {
+  return {
+    firebase: state.firebase
+  }
+}
+
+const PageUsers = (props) => {
+  if (!props.firebase.auth.uid) {
+    navigate('/')
+    return null
+  }
+   
   return (
-    <div>
+    <Wrapper>
       Users
-    </div>
+    </Wrapper>
   )
 }
 
-export default PageUsers
+
+export default connect(mapStateToProps)(PageUsers)
 
 
 
