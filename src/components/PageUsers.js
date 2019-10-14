@@ -1,35 +1,77 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
 import { navigate } from '@reach/router'
 
+import UserTableRow from './UserTableRow'
 import Wrapper from './Wrapper'
 
 const mapStateToProps = (state) => {
   return {
-    firebase: state.firebase
+    firebase: state.firebase,
+    firestore: state.firestore
   }
 }
 
-const PageUsers = (props) => {
-  if (!props.firebase.auth.uid) {
-    navigate('/')
-    return null
+class PageUsers extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      updatedUsers: {}
+    }
   }
-   
-  return (
-    <Wrapper>
-      Users
-    </Wrapper>
-  )
+
+  updateUser = ( uid, details ) => {
+    const updatedUsers = Object.assign(
+      this.state.updatedUsers,
+      { [uid]: details }
+    )
+
+    this.setState({ updatedUsers })
+  }
+
+  render() {
+    if (!this.props.firebase.auth.uid) {
+      navigate('/')
+      return null
+    }
+
+    const users = this.props.firestore.data.users
+    
+    return (
+      <Wrapper>
+        <h1>Users</h1>
+        <table>
+          <tbody>
+            { users && Object.keys(users).map( uid => (
+              <UserTableRow
+                details={ users[uid] }
+                key={ uid }
+                updateUser={ (details) => { this.updateUser(uid, details) } }
+              />
+            ) ) }
+          </tbody>
+        </table>
+        <button
+          onClick={ () => { console.log('save changes to firebase') } }
+          className="c-button">
+            Save changes
+        </button>
+      </Wrapper>
+    )
+  }
 }
 
 
-export default connect(mapStateToProps)(PageUsers)
+export default compose(
+  firestoreConnect( () => ['users'] ),
+  connect(mapStateToProps)
+)(PageUsers)
 
 
-
-// import React, { Component } from 'react';
-// import withAuthorization from '../../authorization'
 
 // import Button from '../button'
 // import ColorPicker from '../color-picker'
