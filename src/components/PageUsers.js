@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { navigate } from '@reach/router'
 
+import { updateUsers } from '../actions/users'
+
 import UserTableRow from './UserTableRow'
 import Wrapper from './Wrapper'
 
@@ -11,6 +13,12 @@ const mapStateToProps = (state) => {
   return {
     firebase: state.firebase,
     firestore: state.firestore
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateUsers: (users) => dispatch(updateUsers(users))
   }
 }
 
@@ -56,7 +64,7 @@ class PageUsers extends Component {
           </tbody>
         </table>
         <button
-          onClick={ () => { console.log('save changes to firebase') } }
+          onClick={ () => { this.props.updateUsers( this.state.updatedUsers ) } }
           className="c-button">
             Save changes
         </button>
@@ -68,7 +76,7 @@ class PageUsers extends Component {
 
 export default compose(
   firestoreConnect( () => ['users'] ),
-  connect(mapStateToProps)
+  connect(mapStateToProps, mapDispatchToProps)
 )(PageUsers)
 
 

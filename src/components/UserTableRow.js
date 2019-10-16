@@ -22,14 +22,14 @@ const UserTableRow = (props) => {
       </td>
       <td>
         <input
-          onChange={ ({ currentTarget }) => { console.log('save ' + currentTarget + ' to state') } }
+          onChange={ ({ currentTarget }) => updateField({ last_name: currentTarget.value }) }
           value={ props.details.last_name }
           type="text"
         />
       </td>
       <td>
         <select
-          onChange={ ({ currentTarget }) => { console.log('save ' + currentTarget + ' to state') }}
+          onChange={ ({ currentTarget }) => updateField({ role: currentTarget.value })}
           value={ props.details.role }
         >
           <option value="admin">Admin</option>
@@ -39,7 +39,7 @@ const UserTableRow = (props) => {
       </td>
       <td>
         <select
-          onChange={ ({ currentTarget }) => { console.log('save ' + currentTarget + ' to state') }}
+          onChange={ ({ currentTarget }) => updateField({ color: currentTarget.value })}
           value={ props.details.color }
         >
           <option value="e1a448">Orange</option>
