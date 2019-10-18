@@ -42,7 +42,9 @@ class PageUsers extends Component {
   }
 
   render() {
-    if (!this.props.firebase.auth.uid) {
+    const isAdmin = this.props.firebase.profile.role === 'admin'
+    
+    if (!this.props.firebase.auth.uid || !isAdmin) {
       navigate('/')
       return null
     }

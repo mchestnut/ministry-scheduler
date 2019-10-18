@@ -17,11 +17,20 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Menu = (props) => {
-  if (props.firebase.auth.uid) {
+  if (props.firebase.auth.uid && props.firebase.profile.role === 'admin') {
     return (
       <nav>
         <Link to="calendar" className="c-button">Calendar</Link>
         <Link to="users" className="c-button">Users</Link>
+        <Link to="profile" className="c-button">My Profile</Link>
+        <button onClick={ props.logOut } className="c-button">Logout</button>
+      </nav>
+    )
+  
+    } else if (props.firebase.auth.uid) {
+    return (
+      <nav>
+        <Link to="calendar" className="c-button">Calendar</Link>
         <Link to="profile" className="c-button">My Profile</Link>
         <button onClick={ props.logOut } className="c-button">Logout</button>
       </nav>
