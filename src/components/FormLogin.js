@@ -32,7 +32,6 @@ class FormLogin extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-
     this.props.logIn(this.state)
   }
   
@@ -55,10 +54,13 @@ class FormLogin extends Component {
             type="password"
           />
         </label>
-        <button type="submit" className="c-button">
+        <button
+          type="submit"
+          className="c-button"
+        >
           Login
         </button>
-        <p>{ this.props.auth.error ? this.props.auth.error.message : '' }</p>
+        <p>{ this.props.auth.response ? this.props.auth.response.message : '' }</p>
       </form>
     )
   }

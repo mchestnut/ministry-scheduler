@@ -2,7 +2,7 @@ import React from 'react'
 
 import Wrapper from './Wrapper'
 
-const PageCalendar = (props) => {
+const PageCalendar = () => {
   return (
     <Wrapper>
       Calendar

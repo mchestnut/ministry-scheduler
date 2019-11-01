@@ -7,8 +7,14 @@ import firebase from '../firebase'
 import rootReducer from '../reducers'
 
 const defaultState = {
-  auth: { error: null },
-  users: { error: null }
+  auth: { response: null },
+  users: {
+    response: {
+      error: null,
+      message: null
+    },
+    result: null
+  }
 }
 
 const rrfConfig = {

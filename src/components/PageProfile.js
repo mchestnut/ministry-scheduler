@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const PageProfile = (props) => {
-  if (!props.firebase.auth.uid) {
+const PageProfile = ({ firebase }) => {
+  if ( !firebase.auth.uid ) {
     navigate('/')
     return null
   }

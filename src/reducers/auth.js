@@ -3,13 +3,13 @@ const auth = (state = {}, action) => {
     case 'LOGIN_SUCCESS':
       return {
         ...state,
-        error: null
+        response: null
       }
 
     case 'LOGIN_ERROR':
       return {
         ...state,
-        error: action.error
+        response: action.response
       }
 
     default:

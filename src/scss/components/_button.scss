@@ -31,3 +31,17 @@
 .c-button--full-width {
   width: 100%;
 }
+
+.c-button--minimal {
+  color: var(--color-gray-light);
+  text-transform: none;
+  text-decoration: underline;
+  border: none;
+  background: transparent;
+
+  &:focus,
+  &:hover {
+    color: white;
+    background: transparent;
+  }
+}

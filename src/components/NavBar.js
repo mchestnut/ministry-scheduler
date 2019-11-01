@@ -5,7 +5,7 @@ import logo from '../img/logo-tbc.png'
 
 import Menu from './Menu'
 
-const NavBar = (props) => {
+const NavBar = () => {
   return (
     <header className="c-nav-bar">
       <div>

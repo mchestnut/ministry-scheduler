@@ -1,14 +1,14 @@
 import React from 'react'
 
-const UserTableRow = (props) => {
+const UserTableRow = ({ details, onChange }) => {
 
   const updateField = ( updatedField ) => {
     const updatedDetails = Object.assign(
-      props.details,
+      details,
       updatedField
     )
 
-    props.updateUser(updatedDetails)
+    onChange(updatedDetails)
   }
 
   return (
@@ -16,21 +16,21 @@ const UserTableRow = (props) => {
       <td>
         <input
           onChange={ ({ currentTarget }) => updateField({ first_name: currentTarget.value }) }
-          value={ props.details.first_name }
+          value={ details.first_name }
           type="text"
         />
       </td>
       <td>
         <input
           onChange={ ({ currentTarget }) => updateField({ last_name: currentTarget.value }) }
-          value={ props.details.last_name }
+          value={ details.last_name }
           type="text"
         />
       </td>
       <td>
         <select
           onChange={ ({ currentTarget }) => updateField({ role: currentTarget.value })}
-          value={ props.details.role }
+          value={ details.role }
         >
           <option value="admin">Admin</option>
           <option value="member">Member</option>
@@ -40,8 +40,9 @@ const UserTableRow = (props) => {
       <td>
         <select
           onChange={ ({ currentTarget }) => updateField({ color: currentTarget.value })}
-          value={ props.details.color }
+          value={ details.color }
         >
+          <option value="8c8989">Gray</option>
           <option value="e1a448">Orange</option>
           <option value="89d177">Green</option>
         </select>

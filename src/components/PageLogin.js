@@ -11,10 +11,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const PageLogin = (props) => {
-  const from = props.location.state.from || '/'
+const PageLogin = ({ firebase, location }) => {
+  const from = location.state.from || '/'
 
-  if (props.firebase.auth.uid) { navigate(from) }
+  if (firebase.auth.uid) { navigate(from) }
   
   return (
     <Wrapper>

@@ -1,15 +1,31 @@
 const users = (state = {}, action) => {
   switch (action.type) {
-    case 'UPDATE_SUCCESS':
+    case 'CLEAR_RESPONSE':
       return {
         ...state,
-        error: null
+        response: {
+          error: null,
+          message: null
+        }
+      }
+    
+    case 'CLEAR_RESULT':
+      return {
+        ...state,
+        result: null
       }
 
-    case 'UPDATE_ERROR':
+    case 'UPDATE_RESPONSE':
       return {
         ...state,
-        error: action.error
+        response: action.response
+      }
+
+    case 'UPDATE_USER_CREATED':
+      return {
+        ...state,
+        response: action.response,
+        result: action.result
       }
 
     default:

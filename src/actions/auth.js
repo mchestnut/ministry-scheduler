@@ -15,7 +15,7 @@ export const logIn = (credentials) => {
       .catch( (error) => {
         dispatch({
           type: 'LOGIN_ERROR',
-          error
+          response: error
         })
       } )
   }
