@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import ColorSelector from './ColorSelector'
+import RoleSelector from './RoleSelector'
+
 class FormCreateUser extends Component {
 
   constructor(props) {
@@ -60,23 +63,15 @@ class FormCreateUser extends Component {
           placeholder="Last name"
         />
         
-        <select
+        <RoleSelector
           onChange={ ({ currentTarget }) => this.setState({ role: currentTarget.value })}
           value={ this.state.role }
-        >
-          <option value="admin">Admin</option>
-          <option value="member">Member</option>
-          <option value="inactive">Inactive</option>
-        </select>
+        />
         
-        <select
+        <ColorSelector
           onChange={ ({ currentTarget }) => this.setState({ color: currentTarget.value })}
           value={ this.state.color }
-        >
-          <option value="8c8989">Gray</option>
-          <option value="e1a448">Orange</option>
-          <option value="89d177">Green</option>
-        </select>
+        />
 
         <button
           type="button"

@@ -1,5 +1,8 @@
 import React from 'react'
 
+import ColorSelector from './ColorSelector'
+import RoleSelector from './RoleSelector'
+
 const UserTableRow = ({ details, onChange }) => {
 
   const updateField = ( updatedField ) => {
@@ -28,24 +31,16 @@ const UserTableRow = ({ details, onChange }) => {
         />
       </td>
       <td>
-        <select
+        <RoleSelector
           onChange={ ({ currentTarget }) => updateField({ role: currentTarget.value })}
           value={ details.role }
-        >
-          <option value="admin">Admin</option>
-          <option value="member">Member</option>
-          <option value="inactive">Inactive</option>
-        </select>
+        />
       </td>
       <td>
-        <select
+        <ColorSelector
           onChange={ ({ currentTarget }) => updateField({ color: currentTarget.value })}
           value={ details.color }
-        >
-          <option value="8c8989">Gray</option>
-          <option value="e1a448">Orange</option>
-          <option value="89d177">Green</option>
-        </select>
+        />
       </td>
     </tr>
   )
